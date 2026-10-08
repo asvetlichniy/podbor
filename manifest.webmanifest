@@ -1,6 +1,6 @@
 {
-  "name": "Подборщик Fintarget",
-  "short_name": "Подборщик Fintarget",
+  "name": "Fintarget",
+  "short_name": "Fintarget",
   "start_url": "./?go=1",
   "scope": "./",
   "display": "browser",

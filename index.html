@@ -3,17 +3,17 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Подборщик Fintarget</title>
+<title>Fintarget</title>
 <!-- Значок и подпись на экране «Домой» -->
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
 <link rel="manifest" href="manifest.webmanifest">
-<meta name="apple-mobile-web-app-title" content="Подборщик Fintarget">
+<meta name="apple-mobile-web-app-title" content="Fintarget">
 <meta name="theme-color" content="#050C42">
 <script>
   // ↓↓↓ Ссылка на приложение: «URL веб-приложения» из Apps Script (заканчивается на /exec). Вставьте её между кавычками.
-  var APP_URL = '';
+  var APP_URL = 'https://script.google.com/macros/s/AKfycbwT87KIBnp-YGkUNv0dH0Z14_VVAC2Hrk2X4c1xSEWSKgy1NFFj9c7WX1qu1OxBxhLI/exec';
   // ↑↑↑
 
   // С экрана «Домой» страница открывается с пометкой ?go — тогда сразу переходим в приложение
@@ -40,8 +40,8 @@
 <main>
   <img class="icon" src="apple-touch-icon.png" alt="">
   <div>
-    <h1>Подборщик Fintarget</h1>
-    <p>Для финансовых советников: анкета клиента и подборка стратегий автоследования.</p>
+    <h1>Fintarget</h1>
+    <p>Подборщик стратегий автоследования для финансовых советников.</p>
   </div>
   <a class="btn" id="open" href="#">Открыть подборщик</a>
   <p class="warn" id="nolink" hidden>В файле index.html ещё не вставлена ссылка на приложение (строка APP_URL).</p>
