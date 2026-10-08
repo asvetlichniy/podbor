@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Подборщик Fintarget</title>
+<!-- Значок и подпись на экране «Домой» -->
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="apple-mobile-web-app-title" content="Подборщик Fintarget">
+<meta name="theme-color" content="#050C42">
+<script>
+  // ↓↓↓ Ссылка на приложение: «URL веб-приложения» из Apps Script (заканчивается на /exec). Вставьте её между кавычками.
+  var APP_URL = '';
+  // ↑↑↑
+
+  // С экрана «Домой» страница открывается с пометкой ?go — тогда сразу переходим в приложение
+  if (/[?&]go\b/.test(location.search) && /^https:\/\/script\.google\.com\//.test(APP_URL)) location.replace(APP_URL);
+</script>
+<style>
+  :root { --navy: #050C42; --mint: #5ECBA1; --ink: #EEF0FB; --muted: #B7BBE0; }
+  * { box-sizing: border-box; }
+  [hidden] { display: none !important; }
+  html, body { margin: 0; background: var(--navy); color: var(--ink); font: 500 17px/1.5 'Helvetica Neue', Arial, sans-serif; }
+  main { max-width: 460px; margin: 0 auto; padding: calc(32px + env(safe-area-inset-top, 0px)) 20px 40px; display: grid; gap: 20px; }
+  .icon { width: 96px; height: 96px; border-radius: 22px; box-shadow: 0 10px 30px rgba(0, 0, 0, .35); }
+  h1 { margin: 0; font-size: 28px; line-height: 1.15; }
+  p { margin: 0; color: var(--muted); }
+  .btn { display: block; text-align: center; background: var(--mint); color: var(--navy); font-weight: 800; text-decoration: none; padding: 16px; border-radius: 12px; font-size: 18px; }
+  .card { background: rgba(255, 255, 255, .06); border: 1px solid rgba(255, 255, 255, .12); border-radius: 16px; padding: 16px; display: grid; gap: 10px; }
+  .card b { color: var(--ink); }
+  ol { margin: 0; padding-left: 22px; color: var(--muted); }
+  li { margin-bottom: 6px; }
+  .warn { color: #F0B860; }
+</style>
+</head>
+<body>
+<main>
+  <img class="icon" src="apple-touch-icon.png" alt="">
+  <div>
+    <h1>Подборщик Fintarget</h1>
+    <p>Для финансовых советников: анкета клиента и подборка стратегий автоследования.</p>
+  </div>
+  <a class="btn" id="open" href="#">Открыть подборщик</a>
+  <p class="warn" id="nolink" hidden>В файле index.html ещё не вставлена ссылка на приложение (строка APP_URL).</p>
+  <section class="card">
+    <b>Значок на экране «Домой» — один раз</b>
+    <div><b>iPhone:</b></div>
+    <ol>
+      <li>Откройте эту страницу в Safari.</li>
+      <li>Нажмите «Поделиться» (квадрат со стрелкой вверх).</li>
+      <li>Выберите «На экран «Домой»» → «Добавить».</li>
+    </ol>
+    <div><b>Android:</b></div>
+    <ol>
+      <li>Откройте эту страницу в Chrome.</li>
+      <li>Нажмите ⋮ в правом верхнем углу.</li>
+      <li>Выберите «Добавить на главный экран».</li>
+    </ol>
+    <p>Если раньше вы уже добавляли подборщик на экран «Домой» серым значком — удалите старый.</p>
+  </section>
+</main>
+<script>
+  var a = document.getElementById('open');
+  if (APP_URL) a.href = APP_URL; else { a.hidden = true; document.getElementById('nolink').hidden = false; }
+  // Значок, добавленный с этой страницы, будет открывать приложение сразу
+  try { if (!/[?&]go\b/.test(location.search)) history.replaceState(null, '', location.pathname + '?go=1'); } catch (e) {}
+</script>
+</body>
+</html>
